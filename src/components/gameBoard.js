@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ScoreBoard from "./scoreBoard";
 
 const fetchCharacters = async ()=>{
     const characters = await fetch('https://hp-api.onrender.com/api/characters', {mode:'cors'});
@@ -26,13 +27,16 @@ export default function GameBoard(){
     }, []);
 
     return(
-        <div className="game-board">
-            {charactersData.slice(0,5).map(data=>{
-                return <div className="characters">
-                    <img style={{width: '200px', height: '300px'}} src={data['image']} alt="hp-character"/>
-                    <p>{data['name']}</p>
-                    </div>
-            })}
+        <div>
+            <ScoreBoard />
+            <div className="game-board">
+                {charactersData.slice(5,13).map(data=>{
+                    return <div className="characters">
+                        <img style={{width: '200px', height: '300px'}} src={data['image']} alt="hp-character"/>
+                        <p>{data['name']}</p>
+                        </div>
+                })}
+            </div>
         </div>
     );
 }
