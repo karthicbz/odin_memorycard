@@ -1,17 +1,19 @@
-import { useState } from "react";
-
-const ScoreText = ({scoreName, scoreValue})=>{
+const ScoreBoard = ({score})=>{
     return(
-        <p>{scoreName}:{scoreValue}</p>
+        <>
+          <p>Score: {score}</p>
+          <p>HighScore: {score}</p>
+        </>
     )
 }
 
-export default function ScoreBoard(){
-    const [score, setScore] = useState(0);
-  return(
-    <div>
-        <ScoreText scoreName="Score" scoreValue={score}/>
-        <ScoreText scoreName="High Score" scoreValue={score}/>
-    </div>
-  )  
-}
+// export default function ScoreBoard(){
+//   return(
+//     <div>
+//         <ScoreText scoreName="Score" scoreValue={score}/>
+//         <ScoreText scoreName="High Score" scoreValue={score}/>
+//     </div>
+//   )  
+// }
+
+export default ScoreBoard;

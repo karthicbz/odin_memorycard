@@ -5,12 +5,20 @@
 }
 
 .game-board{
+  width: 1500px;
   display: flex;
   gap: 1rem;
   justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .characters{
   background-color: goldenrod;
   padding-bottom: 10px;
+}
+
+.characters:hover{
+  cursor: pointer;
 }
