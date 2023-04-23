@@ -1,0 +1,16 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.game-board{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.characters{
+  background-color: goldenrod;
+  padding-bottom: 10px;
+}
