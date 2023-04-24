@@ -74,7 +74,6 @@ export default function GameBoard(){
         imageStart = Math.floor(Math.random() * 15);
         console.log('character update ran');
     }, [count]) //this effect will get trigger whenever the count is updated
-
     return(
         <>
             <ScoreBoard score={score}
