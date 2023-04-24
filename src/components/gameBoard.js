@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ScoreBoard from "./scoreBoard";
+import GameOver from "./gameOver";
 
 const fetchCharacters = async ()=>{
     const characters = await fetch('https://hp-api.onrender.com/api/characters', {mode:'cors'});
@@ -43,6 +44,7 @@ export default function GameBoard(){
             if(characterFound){
                 setCharacterPoints(0);
                 setCharacterClicked([]);
+                document.querySelector('.game-over').id='show-game-over';
             }else{
                 setCharacterClicked([...characterClicked, {name:e.target.parentNode.childNodes[1].textContent}])
                 setCharacterPoints(characterPoints+1);
@@ -58,7 +60,7 @@ export default function GameBoard(){
             <ScoreBoard score={characterPoints}
             highScore={highScore}/>
             <div className="game-board">
-                {charactersData.slice(15,25).map(data=>{
+                {charactersData.slice(15, 25).map(data=>{
                     return(
                         <div 
                         className="characters" 
@@ -70,6 +72,7 @@ export default function GameBoard(){
                     )
                 })}
             </div>
+            <GameOver />
         </>
     );
 }
