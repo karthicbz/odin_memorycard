@@ -66,8 +66,8 @@ export default function GameBoard(){
                         className="characters" 
                         style={{order:Math.floor(Math.random()*4)}}
                         onClick={handleClick}>
-                            <img style={{width:'250px', height:'300px'}} src={data.image} />
-                            <p>{data.name}</p>
+                            <img className="character--photo" style={{width:'250px', height:'300px'}} src={data.image} />
+                            <p className="character--name">{data.name}</p>
                         </div>
                     )
                 })}
