@@ -39,19 +39,21 @@ body{
 .game-board{
   width: 1500px;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0 auto;
   align-items: center;
-  height: calc(100% - (10px + 1.3rem));
+  height: calc(90% - (10px + 1.3rem));
 }
 
 .characters{
   background-color: goldenrod;
   padding-bottom: 10px;
   border-radius: 8px;
+  box-shadow: 2px 2px 20px 1px rgb(56, 37, 37);
+  transition: transform ease-in-out 0.1s;
 }
 
 .character--photo{
@@ -61,10 +63,12 @@ body{
 
 .characters:hover{
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 #show-game-over{
-  display: block;
+  /* display: block; */
+  opacity: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -74,8 +78,23 @@ body{
   background: transparent;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  transition: opacity ease-in-out 0.3s;
 }
 
 .game-over{
-  display: none;
+  opacity: 0;
+  padding-top: 450px;
+}
+
+.gameover--text{
+  font-size: 3rem;
+  color: goldenrod;
+  font-weight: bolder;
+}
+
+.gameover--button{
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border-color: gray;
 }

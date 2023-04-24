@@ -5,8 +5,8 @@ function handleClick(e){
 const GameOver = ()=>{
     return(
         <div className="game-over">
-            <p>Game Over</p>
-            <button onClick={handleClick}>Replay?</button>
+            <p className="gameover--text">Game Over</p>
+            <button className="gameover--button" onClick={handleClick}>Replay?</button>
         </div>
     )
 }
