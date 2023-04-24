@@ -1,8 +1,8 @@
-const ScoreBoard = ({score})=>{
+const ScoreBoard = ({score, highScore})=>{
     return(
         <>
           <p>Score: {score}</p>
-          <p>HighScore: {score}</p>
+          <p>HighScore: {highScore}</p>
         </>
     )
 }

@@ -10,6 +10,7 @@ const fetchCharacters = async ()=>{
 export default function GameBoard(){
     const [charactersData, setCharactersData] = useState([]);
     const [characterPoints, setCharacterPoints] = useState(0);
+    const [highScore, setHighScore] = useState(0);
     const [characterClicked, setCharacterClicked] = useState([]);
 
     console.log('Updated component')
@@ -28,22 +29,34 @@ export default function GameBoard(){
     const handleClick = (e)=>{
         if(characterClicked.length === 0){
             setCharacterClicked([...characterClicked, {name:e.target.parentNode.childNodes[1].textContent}])
-            setCharacterPoints((characterPoints)=>characterPoints+1);
-        }else{
-        characterClicked.filter(character=>{
-            if(character.name === e.target.parentNode.childNodes[1].textContent){
-                setCharacterPoints(0);
-            }else{
-                setCharacterClicked([...characterClicked, {name:e.target.parentNode.childNodes[1].textContent}]);
-                setCharacterPoints((characterPoints)=>characterPoints+1);
+            setCharacterPoints(characterPoints+1);
+            if(characterPoints>=highScore){
+                setHighScore(highScore+1);
             }
-        })}
-        // console.log(e.target.parentNode.childNodes[1].textContent)
+        }else{
+            let characterFound = false;
+            characterClicked.forEach(character=>{
+                if(character.name === e.target.parentNode.childNodes[1].textContent){
+                    characterFound = true
+                }
+            })
+            if(characterFound){
+                setCharacterPoints(0);
+                setCharacterClicked([]);
+            }else{
+                setCharacterClicked([...characterClicked, {name:e.target.parentNode.childNodes[1].textContent}])
+                setCharacterPoints(characterPoints+1);
+                if(characterPoints >= highScore){
+                    setHighScore(highScore+1);
+                }
+            }
+        }
     }
 
     return(
         <>
-            <ScoreBoard score={characterPoints}/>
+            <ScoreBoard score={characterPoints}
+            highScore={highScore}/>
             <div className="game-board">
                 {charactersData.slice(15,25).map(data=>{
                     return(
