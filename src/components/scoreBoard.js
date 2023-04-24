@@ -1,6 +1,7 @@
 const ScoreBoard = ({score, highScore})=>{
     return(
         <div className="score-board">
+          {/* <p>Harry Potter Memory</p> */}
           <p>Score: {score}</p>
           <p>HighScore: {highScore}</p>
         </div>

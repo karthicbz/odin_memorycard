@@ -59,6 +59,8 @@ body{
 .character--photo{
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  width:250px; 
+  height:300px;
 }
 
 .character--name{
@@ -73,7 +75,7 @@ body{
 }
 
 #show-game-over{
-  /* display: block; */
+  display: block;
   opacity: 1;
   position: absolute;
   top: 0;
@@ -90,6 +92,7 @@ body{
 .game-over{
   opacity: 0;
   padding-top: 450px;
+  display: none;
 }
 
 .gameover--text{

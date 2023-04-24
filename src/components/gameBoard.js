@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ScoreBoard from "./scoreBoard";
 import GameOver from "./gameOver";
 
-const imageStart = Math.floor(Math.random() * 15);
+let imageStart = Math.floor(Math.random() * 15);
 
 const fetchCharacters = async ()=>{
     const characters = await fetch('https://hp-api.onrender.com/api/characters', {mode:'cors'});
@@ -15,6 +15,8 @@ export default function GameBoard(){
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
     const [characterClicked, setCharacterClicked] = useState([]);
+    const [gameOverText, setGameOverText] = useState('');
+    const [count, setCount] = useState(0);
 
     console.log('Updated component')
 
@@ -46,16 +48,31 @@ export default function GameBoard(){
             if(characterFound){
                 setScore(0);
                 setCharacterClicked([]);
+                setGameOverText('Game Over');
                 document.querySelector('.game-over').id='show-game-over';
             }else{
                 setCharacterClicked([...characterClicked, {name:e.target.parentNode.childNodes[1].textContent}])
                 setScore(score+1);
-                if(score >= highScore){
+                if(score === 8){
+                    setCount(count+1);
+                }
+                if(score === 9){
+                    setHighScore(highScore+1);
+                    setScore(0);
+                    setCharacterClicked([]);
+                    setGameOverText('You got great memory');
+                    document.querySelector('.game-over').id='show-game-over';
+                }else if(score >= highScore){
                     setHighScore(highScore+1);
                 }
             }
         }
     }
+
+    useEffect(()=>{
+        imageStart = Math.floor(Math.random() * 15);
+        console.log('character update ran');
+    }, [count])
 
     return(
         <>
@@ -68,13 +85,13 @@ export default function GameBoard(){
                         className="characters" 
                         style={{order:Math.floor(Math.random()*4)}}
                         onClick={handleClick}>
-                            <img className="character--photo" style={{width:'250px', height:'300px'}} src={data.image} />
+                            <img className="character--photo" src={data.image} />
                             <p className="character--name">{data.name}</p>
                         </div>
                     )
                 })}
             </div>
-            <GameOver />
+            <GameOver text={gameOverText}/>
         </>
     );
 }
