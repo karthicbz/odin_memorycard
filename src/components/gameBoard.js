@@ -54,11 +54,12 @@ export default function GameBoard(){
                 setCharacterClicked([...characterClicked, {name:e.target.parentNode.childNodes[1].textContent}])
                 setScore(score+1);
                 if(score === 8){
-                    setCount(count+1);
+                    setCount(count+1); //count variable sets game count so that new set of characters will be updated
                 }
                 if(score === 9){
                     setHighScore(highScore+1);
                     setScore(0);
+                    setHighScore(0);
                     setCharacterClicked([]);
                     setGameOverText('You got great memory');
                     document.querySelector('.game-over').id='show-game-over';
@@ -72,7 +73,7 @@ export default function GameBoard(){
     useEffect(()=>{
         imageStart = Math.floor(Math.random() * 15);
         console.log('character update ran');
-    }, [count])
+    }, [count]) //this effect will get trigger whenever the count is updated
 
     return(
         <>
