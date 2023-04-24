@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import ScoreBoard from "./scoreBoard";
 import GameOver from "./gameOver";
 
+const imageStart = Math.floor(Math.random() * 15);
+
 const fetchCharacters = async ()=>{
     const characters = await fetch('https://hp-api.onrender.com/api/characters', {mode:'cors'});
     const data = await characters.json();
@@ -10,7 +12,7 @@ const fetchCharacters = async ()=>{
 
 export default function GameBoard(){
     const [charactersData, setCharactersData] = useState([]);
-    const [characterPoints, setCharacterPoints] = useState(0);
+    const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
     const [characterClicked, setCharacterClicked] = useState([]);
 
@@ -30,8 +32,8 @@ export default function GameBoard(){
     const handleClick = (e)=>{
         if(characterClicked.length === 0){
             setCharacterClicked([...characterClicked, {name:e.target.parentNode.childNodes[1].textContent}])
-            setCharacterPoints(characterPoints+1);
-            if(characterPoints>=highScore){
+            setScore(score+1);
+            if(score>=highScore){
                 setHighScore(highScore+1);
             }
         }else{
@@ -42,13 +44,13 @@ export default function GameBoard(){
                 }
             })
             if(characterFound){
-                setCharacterPoints(0);
+                setScore(0);
                 setCharacterClicked([]);
                 document.querySelector('.game-over').id='show-game-over';
             }else{
                 setCharacterClicked([...characterClicked, {name:e.target.parentNode.childNodes[1].textContent}])
-                setCharacterPoints(characterPoints+1);
-                if(characterPoints >= highScore){
+                setScore(score+1);
+                if(score >= highScore){
                     setHighScore(highScore+1);
                 }
             }
@@ -57,10 +59,10 @@ export default function GameBoard(){
 
     return(
         <>
-            <ScoreBoard score={characterPoints}
+            <ScoreBoard score={score}
             highScore={highScore}/>
             <div className="game-board">
-                {charactersData.slice(15, 25).map(data=>{
+                {charactersData.slice(imageStart, imageStart+10).map(data=>{
                     return(
                         <div 
                         className="characters" 

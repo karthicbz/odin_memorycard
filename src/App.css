@@ -61,6 +61,12 @@ body{
   border-top-right-radius: 8px;
 }
 
+.character--name{
+  text-align: center;
+  font-family: 'Freehand', cursive;;
+  font-size: 1.1rem;
+}
+
 .characters:hover{
   cursor: pointer;
   transform: scale(1.1);
@@ -90,6 +96,7 @@ body{
   font-size: 3rem;
   color: goldenrod;
   font-weight: bolder;
+  font-family: 'Freehand', cursive;;
 }
 
 .gameover--button{
