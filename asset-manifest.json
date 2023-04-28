@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/odin_memorycard/static/css/main.354ac6ec.css",
-    "main.js": "/odin_memorycard/static/js/main.9c30abac.js",
+    "main.css": "/odin_memorycard/static/css/main.9bfe7c52.css",
+    "main.js": "/odin_memorycard/static/js/main.d1791040.js",
     "static/media/game-background.jpg": "/odin_memorycard/static/media/game-background.a8810b5abe00cd4343f5.jpg",
     "index.html": "/odin_memorycard/index.html",
-    "main.354ac6ec.css.map": "/odin_memorycard/static/css/main.354ac6ec.css.map",
-    "main.9c30abac.js.map": "/odin_memorycard/static/js/main.9c30abac.js.map"
+    "main.9bfe7c52.css.map": "/odin_memorycard/static/css/main.9bfe7c52.css.map",
+    "main.d1791040.js.map": "/odin_memorycard/static/js/main.d1791040.js.map"
   },
   "entrypoints": [
-    "static/css/main.354ac6ec.css",
-    "static/js/main.9c30abac.js"
+    "static/css/main.9bfe7c52.css",
+    "static/js/main.d1791040.js"
   ]
 }
