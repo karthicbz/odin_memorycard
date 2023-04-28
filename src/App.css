@@ -6,15 +6,7 @@
   box-sizing: border-box;
 }
 
-html{
-  height: 100%;
-}
-
-body{
-  height: 100%;
-}
-
-#root, .App{
+html, body{
   height: 100%;
 }
 
@@ -22,7 +14,8 @@ body{
   background-image: url('./images/game-background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-
+  background-position: center;
+  height: 100%;
 }
 
 .score-board{
@@ -36,6 +29,10 @@ body{
   font-family: 'Freehand', cursive;
   color: gold;
   gap: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .score--heading{
@@ -54,7 +51,8 @@ body{
   justify-content: center;
   margin: 0 auto;
   align-items: center;
-  height: calc(90% - (10px + 1.3rem));
+  /* height: calc(90% - (10px + 1.3rem)); */
+  height: 100vh;
 }
 
 .characters{
@@ -128,7 +126,7 @@ body{
 @media screen and (max-width: 412px){
 
   .App{
-    background-repeat: repeat-y;
+    height: 100%;
   }
   .game-board{
     width: 400px;
@@ -139,4 +137,61 @@ body{
     width: 165px;
     height: 120px;
   }
+
+  .score-board{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .game-board{
+    padding-top: 4rem;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+  }
 }
+
+@media screen and (max-width: 414px){
+
+  .App{
+    height: 100%;
+  }
+  .game-board{
+    width: 414px;
+    margin-top: 1rem;
+  }
+
+  .character--photo{
+    width: 165px;
+    height: 130px;
+  }
+
+  .score-board{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .game-board{
+    padding-top: 4rem;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 390px){
+
+  .App{
+    height: 100%;
+  }
+  .game-board{
+    width: 390px;
+    margin-top: 1rem;
+  }
+
+}
+
