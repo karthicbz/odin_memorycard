@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ScoreBoard from "./scoreBoard";
 import GameOver from "./gameOver";
+import DotLoader from "react-spinners/DotLoader";
 
 let imageStart = Math.floor(Math.random() * 15);
 
@@ -78,7 +79,7 @@ export default function GameBoard(){
         <>
             <ScoreBoard score={score}
             highScore={highScore}/>
-            {charactersData?<div className="game-board">
+            {charactersData.length!==0?<div className="game-board">
                 {charactersData.slice(imageStart, imageStart+10).map(data=>{
                     return(
                         <div
@@ -86,11 +87,21 @@ export default function GameBoard(){
                         style={{order:Math.floor(Math.random()*4)}}
                         onClick={handleClick}>
                             <img className="character--photo" src={data.image} alt='characters'/>
-                            <p className="character--name">{data.name}</p>
+                            {<p className="character--name">{data.name}</p>}
                         </div>
                     )
                 })}
-            </div>:<h1 data-testid="loading-text">Loading...</h1>}
+            </div>:
+            <div className="loaderArea">
+            <DotLoader
+                color={'gold'}
+                loading={true}
+                size={150}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+            />
+            </div>
+            }
             <GameOver text={gameOverText}/>
         </>
     );
