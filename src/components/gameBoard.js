@@ -82,7 +82,7 @@ export default function GameBoard(){
             {charactersData.length!==0?<div className="game-board">
                 {charactersData.slice(imageStart, imageStart+10).map(data=>{
                     return(
-                        <div
+                        <div key={data.name}
                         className="characters" 
                         style={{order:Math.floor(Math.random()*4)}}
                         onClick={handleClick}>
