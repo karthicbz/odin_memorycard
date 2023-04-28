@@ -78,19 +78,19 @@ export default function GameBoard(){
         <>
             <ScoreBoard score={score}
             highScore={highScore}/>
-            <div className="game-board">
+            {charactersData?<div className="game-board">
                 {charactersData.slice(imageStart, imageStart+10).map(data=>{
                     return(
-                        <div 
+                        <div
                         className="characters" 
                         style={{order:Math.floor(Math.random()*4)}}
                         onClick={handleClick}>
-                            <img className="character--photo" src={data.image} />
+                            <img className="character--photo" src={data.image} alt='characters'/>
                             <p className="character--name">{data.name}</p>
                         </div>
                     )
                 })}
-            </div>
+            </div>:<h1 data-testid="loading-text">Loading...</h1>}
             <GameOver text={gameOverText}/>
         </>
     );

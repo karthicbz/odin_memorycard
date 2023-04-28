@@ -117,3 +117,19 @@ body{
   border-radius: 8px;
   border-color: gray;
 }
+
+@media screen and (max-width: 412px){
+
+  .App{
+    background-repeat: repeat-y;
+  }
+  .game-board{
+    width: 400px;
+    margin-top: 1rem;
+  }
+
+  .character--photo{
+    width: 165px;
+    height: 120px;
+  }
+}
